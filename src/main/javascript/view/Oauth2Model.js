@@ -25,8 +25,8 @@ SwaggerUi.Models.Oauth2Model = Backbone.Model.extend({
         if (this.attributes && this.attributes.flow) {
             var flow = this.attributes.flow;
             this.set('isPasswordFlow', flow === 'password');
-            this.set('requireClientAuthentication', flow === 'application');
-            this.set('clientAuthentication', flow === 'password' || flow === 'application');
+            this.set('requireClientAuthentication', flow === 'application' || flow === 'accessCode');
+            this.set('clientAuthentication', flow === 'password' || flow === 'application' || flow === 'accessCode');
         }
         this.on('change', this.validate);
     },

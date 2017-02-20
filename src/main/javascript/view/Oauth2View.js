@@ -61,13 +61,16 @@ SwaggerUi.Views.Oauth2View = Backbone.View.extend({
     setClientId: function (e) {
         var val = $(e.target).val();
         this.model.set('clientId', val);
+        window.clientId = val;
         if (val) {
             $(e.target).removeClass(this.cls.error);
         }
     },
 
     setClientSecret: function (e) {
-        this.model.set('clientSecret', $(e.target).val());
+        var val = $(e.target).val();
+        this.model.set('clientSecret', val);
+        window.clientSecret = val;
         $(e.target).removeClass('error');
     },
 
